@@ -71,17 +71,17 @@ function Computer() {
 
   Computer.prototype.saveScore = function() {
     this.score = this.score + this.currentRoll;
-    this.currentRoll = 0;
   };
 
   Computer.prototype.playTurn = function() {
-
+debugger;
     var playGame = true;
     var loops = 0;
     while (playGame === true) {
       loops += 1;
       var newRoll = new DiceRoll();
       newRoll.roll(1);
+      console.log(newRoll.showResults());
       if (newRoll.validateRoll() === false) {
         this.currentRoll = 0;
         playGame = false;
@@ -97,6 +97,15 @@ function Computer() {
       }
     }
   };
+
+    Computer.prototype.showResults = function() {
+      return this.score;
+    };
+
+    Computer.prototype.showCurrent = function() {
+      return this.currentRoll;
+    };
+
 }
 
 $(document).ready(function() {
@@ -111,7 +120,12 @@ $(document).ready(function() {
     $('.diceScore').text(player.saveScore());
     player.resetCurrent();
     $('.playerDiceroll').text(player.showCurrent());
+debugger;
     computer.playTurn();
+    $('#computer-result').show();
+
+    $('.computerScore').text(computer.showResults());
+    $('.computerRoll').text(computer.showCurrent());
     if (player.showResults >= 100) {
       //update span, update some "win" variable, hide game-buttons to force end screen??
       alert("Congratulations! You win!");
@@ -129,7 +143,7 @@ $(document).ready(function() {
     }// begin roll validation, add to current AFTER validate
     //update output
     //check win condition
-  
+
 
     if (player.currentScore <= 1) {
 

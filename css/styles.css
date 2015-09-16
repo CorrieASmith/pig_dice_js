@@ -2,6 +2,10 @@
   display: none;
 }
 
+#computer-result {
+  display: none;
+}
+
 body {
   background-image: url("background.jpg");
   font-family: 'Amatic SC', cursive;
