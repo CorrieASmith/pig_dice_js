@@ -112,20 +112,26 @@ $(document).ready(function() {
     player.resetCurrent();
     $('.playerDiceroll').text(player.showCurrent());
     computer.playTurn();
+    if (player.showResults >= 100) {
+      //update span, update some "win" variable, hide game-buttons to force end screen??
+      alert("Congratulations! You win!");
+    }
   });
 
   $("form#keep-rolling").submit(function(event) {
     var working_roll = new DiceRoll();
     event.preventDefault();
     working_roll.roll(diceCount);
-    if (working_roll.validateRoll() == true) {
+    if (working_roll.validateRoll() === true) {
       player.updateCurrentRoll(working_roll.showResults());
-    } // begin roll validation, add to current AFTER validate
+    } else {
+      //clear current roll, proceed to computer turn.
+    }// begin roll validation, add to current AFTER validate
     //update output
     //check win condition
-    if (player.score >= 100) {
+    if (player.showResults >= 100) {
       //update span, update some "win" variable, hide game-buttons to force end screen??
-      alert("Congratulations! You win!")
+      alert("Congratulations! You win!");
     }
 
     if (player.currentScore <= 1) {
