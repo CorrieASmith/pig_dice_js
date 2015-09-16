@@ -18,6 +18,10 @@ function DiceRoll() {
     }
     return true;
   };
+
+  DiceRoll.prototype.showResults = function() {
+    return rollResults;
+  };
 }
 
 
@@ -44,10 +48,11 @@ function Player() {
 ///Computer player's methods/constructor
 function Computer() {
   this.score = 0;
-  this.currentScore = 0;
+  this.currentRoll = 0;
 
   Computer.prototype.updateCurrentRoll = function(rollResults) {
-    for (var counter = 0; counter < rollResults.length; counter++) {
+    debugger;
+    for (var counter = 0, length = rollResults.length; counter < length; counter++) {
       this.currentRoll = this.currentRoll + rollResults[counter];
     }
   };
@@ -62,22 +67,22 @@ function Computer() {
 
     var playGame = true;
     var loops = 0;
-    while (playGame == true) {
+    while (playGame === true) {
       loops += 1;
       var newRoll = new DiceRoll();
       newRoll.roll(1);
 debugger;
-      if (newRoll.validateRoll() == false) {
-        this.currentScore = 0;
+      if (newRoll.validateRoll() === false) {
+        this.currentRoll = 0;
         playGame = false;
         break;
       }
-      this.updateCurrentRoll(newRoll.rollResults);
+      this.updateCurrentRoll(newRoll.showResults);
 
       if (loops >= 2) {
-        this.saveScore;
+        this.saveScore();
         playGame = false;
-        this.currentScore = 0;
+        this.currentRoll = 0;
         break;
       }
     }
