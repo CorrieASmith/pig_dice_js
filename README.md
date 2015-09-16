@@ -15,7 +15,7 @@ _This is a simple JavaScript application that allows the user to roll a die, sav
 * _Open pig-dice.html in your browser_
 * _Take on the computer in an intense game of Pig Dice!_
 
-_All you need to play this game is to clone the repository on your computer and fire it up in your broswer._
+_All you need to play this game is to clone the repository on your computer and fire it up in your browser._
 
 ## Technologies Used
 
