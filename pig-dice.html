@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Pig Dice (oink oink)</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Play Pig Dice</h1>
+      <div class ="jumbotron">
+        <form id="keep-rolling">
+          <button type="submit" class="btn btn-primary btn-md">Roll Dice</button>
+        </form>
+      <br>
+        <form id="save-roll">
+          <button type="submit" class="btn btn-primary btn-md">Save Score</button>
+        </form>
+        <br>
+
+        <div id="result">
+            You rolled a whopping <span class="playerDiceroll"></span> on this turn. Your overall         score is <span class="diceScore"></span>.</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

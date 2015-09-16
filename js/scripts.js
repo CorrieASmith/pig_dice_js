@@ -40,8 +40,20 @@ function Player() {
 
   Player.prototype.saveScore = function() {
     this.score = this.score + this.currentRoll;
+    return this.score;
+  };
+
+  Player.prototype.showResults = function() {
+    return this.score;
+  };
+
+  Player.prototype.showCurrent = function() {
+    return this.currentRoll;
+  };
+  Player.prototype.resetCurrent = function() {
     this.currentRoll = 0;
   };
+
 }
 
 
@@ -51,7 +63,6 @@ function Computer() {
   this.currentRoll = 0;
 
   Computer.prototype.updateCurrentRoll = function(rollResults) {
-    debugger;
     for (var counter = 0, length = rollResults.length; counter < length; counter++) {
       this.currentRoll = this.currentRoll + rollResults[counter];
     }
@@ -71,7 +82,6 @@ function Computer() {
       loops += 1;
       var newRoll = new DiceRoll();
       newRoll.roll(1);
-debugger;
       if (newRoll.validateRoll() === false) {
         this.currentRoll = 0;
         playGame = false;
@@ -88,3 +98,43 @@ debugger;
     }
   };
 }
+
+$(document).ready(function() {
+  var player = new Player();
+  var computer = new Computer();
+
+  var diceCount = 1;
+
+  $("form#save-roll").submit(function(event) {
+    event.preventDefault();
+
+    $('.diceScore').text(player.saveScore());
+    player.resetCurrent();
+    $('.playerDiceroll').text(player.showCurrent());
+    computer.playTurn();
+  });
+
+  $("form#keep-rolling").submit(function(event) {
+    var working_roll = new DiceRoll();
+    event.preventDefault();
+    working_roll.roll(diceCount);
+    if (working_roll.validateRoll() == true) {
+      player.updateCurrentRoll(working_roll.showResults());
+    } // begin roll validation, add to current AFTER validate
+    //update output
+    //check win condition
+    if (player.score >= 100) {
+      //update span, update some "win" variable, hide game-buttons to force end screen??
+      alert("Congratulations! You win!")
+    }
+
+    if (player.currentScore <= 1) {
+
+    }
+
+    $('.turnScore').text(working_roll.showResults());
+    $('.diceScore').text(player.showResults());
+    $('.playerDiceroll').text(player.showCurrent());
+    $("#result").show();
+  });
+});
