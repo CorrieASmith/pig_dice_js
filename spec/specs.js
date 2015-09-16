@@ -6,17 +6,24 @@ describe('roll', function() {
   });
 
   it("rolls the dice", function () {
-    var testPlayer = new Player();
-    expect(testPlayer.roll(1)).not.to.equal([]);
+    var testRoll = new DiceRoll();
+    testRoll.roll(1);
+    //Note: <player>.roll(<diceCount>);
+    expect(testRoll.rollResults).not.to.equal([]);
   });
 
   it("updates the current roll using random dice roll", function() {
     var testPlayer = new Player();
-    expect(testPlayer.updateCurrentRoll(testPlayer.roll(1))).not.to.equal(0);
+    var testRoll = new DiceRoll();
+    // Note: <player>.updateCurrentRoll(<roll(s) to add>)
+    // current roll represents un-saved score for the turn
+    expect(testPlayer.updateCurrentRoll(testRoll.roll(1))).not.to.equal(0);
   });
 
   it("adds the currentRoll to the player's score", function() {
     var testPlayer = new Player();
-    expect(testPlayer.saveScore(testPlayer.updateCurrentRoll(testPlayer.roll(1)))).not.to.equal(0);
+    var testRoll = new DiceRoll();
+    //Note: <player>.saveScore() has natural parameters, but apparently this works?
+    expect(testPlayer.saveScore(testPlayer.updateCurrentRoll(testRoll.roll(1)))).not.to.equal(0);
   });
 });
