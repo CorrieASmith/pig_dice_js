@@ -129,10 +129,7 @@ $(document).ready(function() {
     }// begin roll validation, add to current AFTER validate
     //update output
     //check win condition
-    if (player.showResults >= 100) {
-      //update span, update some "win" variable, hide game-buttons to force end screen??
-      alert("Congratulations! You win!");
-    }
+  
 
     if (player.currentScore <= 1) {
 
