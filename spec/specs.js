@@ -27,3 +27,12 @@ describe('roll', function() {
     expect(testPlayer.saveScore(testPlayer.updateCurrentRoll(testRoll.roll(1)))).not.to.equal(0);
   });
 });
+
+describe("Computer", function() {
+  it("Confirms Computer constructor is correct", function() {
+    var testComputer = new Computer();
+    var testRoll = new DiceRoll();
+
+    expect(testComputer.saveScore(testComputer.updateCurrentRoll(testRoll.roll(1)))).not.to.equal(0);
+  });
+});
