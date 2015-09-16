@@ -23,7 +23,7 @@ _All you need to play this game is to clone the repository on your computer and 
 * _mocha.css_
 * _chai.js_
 * _jquery-1.11.3_
-_This app was written primarily in JavaScript. We also used HTML, CSS and jQuery for styling and routing purposes._
+* _This app was written primarily in JavaScript. We also used HTML, CSS and jQuery for styling and routing purposes._
 
 ### Legal
 
