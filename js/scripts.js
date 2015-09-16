@@ -2,10 +2,13 @@ function Player() {
   this.score = 0;
   this.currentRoll = 0;
 
-  var updateCurrentRoll = function(rollResults) {
-    currentRoll = currentRoll + rollResults;
-  }
+  Player.prototype.updateCurrentRoll = function(rollResults) {
+    for (var counter = 0; counter < rollResults.length; counter++) {
+      this.currentRoll = this.currentRoll + rollResults[counter];
+    }
+  };
 }
+
 
 Player.prototype.roll = function(diceCount) {
   var rollResults = [];
