@@ -14,4 +14,9 @@ describe('roll', function() {
     var testPlayer = new Player();
     expect(testPlayer.updateCurrentRoll(testPlayer.roll(1))).not.to.equal(0);
   });
+
+  it("adds the currentRoll to the player's score", function() {
+    var testPlayer = new Player();
+    expect(testPlayer.saveScore(testPlayer.updateCurrentRoll(testPlayer.roll(1)))).not.to.equal(0);
+  });
 });

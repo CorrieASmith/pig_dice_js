@@ -7,6 +7,11 @@ function Player() {
       this.currentRoll = this.currentRoll + rollResults[counter];
     }
   };
+
+  Player.prototype.saveScore = function() {
+    this.score = this.score + this.currentRoll;
+    this.currentRoll = 0;
+  };
 }
 
 
