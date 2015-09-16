@@ -10,7 +10,7 @@ function DiceRoll() {
   };
 
   // false == bad-roll , true == good-roll (!1)
-  DiceRoll.prototype.validateRoll = function(rollResults) {
+  DiceRoll.prototype.validateRoll = function() {
     for (var i = 0; i < rollResults.length; i++) {
       if (rollResults[i] == 1) {
         return false;
@@ -59,9 +59,27 @@ function Computer() {
   };
 
   Computer.prototype.playTurn = function() {
-    var temporaryRoll = this.roll(1);
-    //if (temporaryRoll != 1)
-      // add to current,
 
+    var playGame = true;
+    var loops = 0;
+    while (playGame == true) {
+      loops += 1;
+      var newRoll = new DiceRoll();
+      newRoll.roll(1);
+debugger;
+      if (newRoll.validateRoll() == false) {
+        this.currentScore = 0;
+        playGame = false;
+        break;
+      }
+      this.updateCurrentRoll(newRoll.rollResults);
+
+      if (loops >= 2) {
+        this.saveScore;
+        playGame = false;
+        this.currentScore = 0;
+        break;
+      }
+    }
   };
 }

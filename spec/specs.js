@@ -35,4 +35,9 @@ describe("Computer", function() {
 
     expect(testComputer.saveScore(testComputer.updateCurrentRoll(testRoll.roll(1)))).not.to.equal(0);
   });
+
+  it("tests the Computer.playTurn method", function() {
+    var testComputer = new Computer();
+    testComputer.playTurn();
+  });
 });
